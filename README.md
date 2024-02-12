@@ -18,6 +18,8 @@
 - Manter informações do usuário autenticado quando dar refresh na página.
 
 
+- Incluir o token em todas as requisições para API.
+
 Context => Responsável por ter todas as informações do contexto de autenticação.
 Provider => 
 Promisse => realiza uma chamada para uma API. Tipagem de funções que realização tal ação.
@@ -29,4 +31,6 @@ Cookies => Recomendado quando projeto for Next.
 
 Todas as telas vão precisar e quais são suas permissões para determinar se o usuário pode acessar a tela ou não, ou mostrar algum componente ou não para uma determinada permissão.
 
-Resolva o Problema: Quando a página é recarregada, 
+Resolva o Problema: Quando a página é recarregada, manter/obter informações do usuário
+
+- Para manter as informações do usuário, na primeira vez que o usuário acessar a página, é disparado uma requisição para obter as informações do usuário através do token. Isso é feito com useEffect no AuthContext.
