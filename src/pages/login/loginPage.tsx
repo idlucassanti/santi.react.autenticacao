@@ -1,7 +1,9 @@
 import { FormEvent, useContext, useState } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/authContext";
 
 function LoginPage() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,7 +17,11 @@ function LoginPage() {
       password
     }
 
-    await signIn(data);
+    var result = await signIn(data);
+
+    if (result){
+      navigate('/home');
+    }
   }
 
   return (
